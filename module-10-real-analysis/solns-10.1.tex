@@ -1,0 +1,119 @@
+\documentclass[11pt]{exam}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+\author{@dante}
+
+\headrule{}
+
+\begin{document}
+
+\lhead{\textbf{Intro to Math Thinking Fall 2024: Assignment 10.1}}
+
+\begin{enumerate}[leftmargin=0pt]
+
+\item[1.] Let $A = (a, b)$, $C = (c, d)$ where $A, C$ are intervals.
+\begin{align*}
+    A \cap C &= \{x | a < x < b\} \cap \{x | c < x < d\} \\
+    &= \{x | max(a,c) < x < min(b,d)\} \\
+    &= (max(a,c), min(b,d))
+\end{align*}
+Similarly for closed intervals and $\frac{1}{2}$-intervals. Hence, true. \\
+False for unions. Observe that $(0, 1) \cup (3, 4)$ is not an interval.
+
+\item[2.] 
+\begin{enumerate}[label=(\alph*)]
+    \item $(-\infty, 1) \cup (3, +\infty)$
+    \item $(-\infty, 1] \cup (7, +\infty)$
+    \item $(-\infty, 5] \cup (8, +\infty)$
+    \item  $(3, 8]$
+    \item $[3, +\infty)$
+    \item $(-\infty, \pi) \cup (\pi, +\infty)$
+    \item $[4]$
+    \item $\emptyset$
+    \item $(-\infty, 7] \cup [8, +\infty)$
+    \item $(5, 7]$
+\end{enumerate}
+
+\item[3.] Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ that has an upper bound $c \in \mathbb{Z}, \mathbb{Q}, \mathbb{R}$. We can find another upper bound $c + 1 > c$. Since this can be done with any upper bound, there are infinitely many different upper bounds. $\blacksquare$
+
+\item[4.] Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ that has a least upper bound $c$ such that for any upper bound $b$ of the set, $c \leq b$. Suppose there exists 2 lubs, $c_1, c_2$. Since they are lubs, they are also upper bounds such that $(c_1 \leq c_2) \land (c_2 \leq c_1) \Leftrightarrow c_1 = c_2$. Hence, the lub is unique. $\blacksquare$
+
+\item[5.] 
+
+Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ for the following
+
+\begin{enumerate}[label=(\alph*)]
+    \item $(\Rightarrow)$ Let $b$ be the least upper bound of $A$. By definition of lub, $(\forall a \in A)(a \leq b)$ and for any other upper bound $c$, $b \leq c$. \\
+    $(\Leftarrow)$ $(\forall a \in A)(a \leq b)$ and for any other upper bound $c$, $b \leq c$. If $A$ has a least upper bound, then by definition $b$ is the lub of $A$. \\
+    Thus, the statement is true. $\blacksquare$
+    \item $(\Rightarrow)$ Let $b$ be the least upper bound of $A$. If $\exists c, c < b$, then $c$ is not an upper bound of $A$. Thus, $\exists a \in \mathbb{A}$ such that $a > c$. \\
+    $(\Leftarrow)$ $\exists c, c < b$ where $c$ is not an upper bound of $A$, and $\exists a \in \mathbb{A}$ such that $a > c$. Since \textbf{(a)} is also true, then $b$ is the lub of $A$. \\
+    Hence, the statement is true. $\blacksquare$
+\end{enumerate}
+
+\item[6.]
+\begin{enumerate}[label=(\alph*)]
+    \item $(\Rightarrow)$ Let $lub(A) = b$. Then by definition of least upper bound, $(\forall a \in A)(a \leq b)$. Hence, true. \\
+    $(\Leftarrow)$ $(\forall a \in A)(a \leq b)$. By definition of least upper bound, we can write $lub(A) = b$. Hence, true. \\
+    Thus, the statement is true. $\blacksquare$
+    \item $(\Rightarrow)$ Let $lub(A) = b$. Let $\epsilon \in \mathbb{R}$ such that $\epsilon > 0$. $\exists a \in A$ such that $a > b - \epsilon$. By definition of lub, $a \leq b$. Rearranging $a > b - \epsilon \Leftrightarrow \epsilon > b - a$. As $a$ tends to $b$, $\epsilon > b - a \Leftrightarrow \epsilon > 0$. Hence, $(\forall \epsilon > 0)(\exists a \in A)(a > b - \epsilon)$ is true. \\
+    $(\Leftarrow)$ Suppose $(\forall \epsilon > 0)(\exists a \in A)(a > b - \epsilon)$. Since $\epsilon > 0$ and $a \in A$, it is also true that $a \leq b$. By definition of lub, we can write $lub(A) = b$. Hence, true. \\
+    Thus, the statement is true. $\blacksquare$
+\end{enumerate}
+
+\item[7.] $\mathbb{N}$
+
+\item[8.] Let $A$ be a finite set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ such that $\exists b(\forall a \in A)(a \leq b)$. If $b \leq c$ where $c$ is any other element in $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ that is an upper bound, then $b$ is the least upper bound of $A$.
+
+\item[9.] 
+\begin{enumerate}[label = (\alph*)]
+    \item $lub(a, b) = b$
+    \item $lub[a, b] = b$
+    \item $max(a, b) = \text{undefined}$
+    \item $max[a, b] = b$
+\end{enumerate}
+
+\item[10.] Let $A = \{|x - y| \mid x, y \in (a, b)\}$. The largest element of $A$ can be constructed by letting $x = b - \epsilon, y = a + \epsilon$ such that $|x - y| = |(b - \epsilon) - (a + \epsilon)| = |(b - a) - 2\epsilon| = (b - a) - 2\epsilon$ where $\epsilon$ tends to 0 from above. Since $b - a \geq b - a - 2\epsilon \Leftrightarrow \epsilon \geq 0$. This is a least upper bound since any element $x$ such that $0 < x < b - a$ will be inside $A$.
+
+\item[11.] Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$. Then $(\forall a \in A)(a \geq b)$, where $b$ is a lower bound of $A$.
+
+\item[12.] Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$. $A$ has a greatest lower bound $b$ if $b$ is a lower bound, and for any other lower bound $c, c \leq b$.
+
+\item[13.]
+Let $A$ be a set of $\mathbb{Z}/\mathbb{Q}/\mathbb{R}$ for the following
+
+\begin{enumerate}[label=(\alph*)]
+    \item $(\Rightarrow)$ Let $b$ be the greatest lower bound of $A$. By definition of glb, $(\forall a \in A)(a \geq b)$ and for any other lower bound $c$, $b \geq c$. \\
+    $(\Leftarrow)$ $(\forall a \in A)(a \geq b)$ and for any other lower bound $c$, $b \geq c$. If $A$ has a greatest lower bound, then by definition $b$ is the glb of $A$. \\
+    Thus, the statement is true. $\blacksquare$
+    \item $(\Rightarrow)$ Let $b$ be the greatest lower bound of $A$. If $\exists c, c > b$, then $c$ is not a lower bound of $A$. Thus, $\exists a \in \mathbb{A}$ such that $a < c$. \\
+    $(\Leftarrow)$ $\exists c, c > b$ where $c$ is not a lower bound of $A$, and $\exists a \in \mathbb{A}$ such that $a < c$. Since \textbf{(a)} is also true, then $b$ is the glb of $A$. \\
+    Hence, the statement is true. $\blacksquare$
+\end{enumerate}
+
+\item[14.]
+\begin{enumerate}[label=(\alph*)]
+    \item $(\Rightarrow)$ Let $glb(A) = b$. Then by definition of greatest lower bound, $(\forall a \in A)(a \geq b)$. Hence, true. \\
+    $(\Leftarrow)$ $(\forall a \in A)(a \geq b)$. By definition of greatest lower bound, we can write $glb(A) = b$. Hence, true. \\
+    Thus, the statement is true. $\blacksquare$
+    \item $(\Rightarrow)$ Let $glb(A) = b$. Let $\epsilon \in \mathbb{R}$ such that $\epsilon > 0$. $\exists a \in A$ such that $a < b + \epsilon$. By definition of glb, $a \geq b$. Rearranging $a < b + \epsilon \Leftrightarrow \epsilon > a - b$. As $a$ tends to $b$, $\epsilon > a - b \Leftrightarrow \epsilon > 0$. Hence, $(\forall \epsilon > 0)(\exists a \in A)(a < b + \epsilon)$ is true. \\
+    $(\Leftarrow)$ Suppose $(\forall \epsilon > 0)(\exists a \in A)(a < b + \epsilon)$. Since $\epsilon > 0$ and $a \in A$, it is also true that $a \geq b$. By definition of glb, we can write $glb(A) = b$. Hence, true. \\
+    Thus, the statement is true. $\blacksquare$
+\end{enumerate}
+
+\item[15.] Let $A$ be a nonempty set of $\mathbb{R}$ that has a lower bound. $\exists b (\forall a \in A)(a \geq b)$ where any lower bound $c, c \leq b$. By definition of greatest lower bound, we can write $glb(A) = b$, and thus $\mathbb{R}$ is complete. $\blacksquare$
+
+\item[16.] Completeness Property for $\mathbb{Z}$ states every non-empty set of $\mathbb{Z}$ that contains a lower/upper bound contains a greatest/least lower/upper bound.
+
+\end{enumerate}
+\end{document}

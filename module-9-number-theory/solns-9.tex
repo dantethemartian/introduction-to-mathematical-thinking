@@ -1,0 +1,86 @@
+\documentclass[11pt]{exam}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+\author{@dante}
+
+\headrule{}
+
+\begin{document}
+
+\lhead{\textbf{Intro to Math Thinking Fall 2024: Assignment 9}}
+
+\begin{enumerate}[leftmargin=0pt]
+
+\item[1.] $b \mid a$ is equivalent to saying $b \mid a \Leftrightarrow (\exists n \in \mathbb{Z})[a = nb]$, which is either true or false. $a/b$ is a rational number. 
+
+\item[2.] 
+
+The following use definition of divisible.
+
+\begin{enumerate}[label=(\alph*)]
+    \item False, $b \neq 0$.
+    \item True, $9 \mid 0$ because $9*0 = 0$.
+    \item False, $b \neq 0$.
+    \item True, $1*1 = 1$.
+    \item False, $44 = 6*7 + 2$.
+    \item True, $7*-6 = -42$.
+    \item True, $-7*-7 = 49$.
+    \item True, $-7*8 = -56$.
+    \item True, $1*n = n$.
+    \item True, $n*0 = 0$.
+    \item False, $0 \in \mathbb{Z}$, and $b \neq 0$.
+\end{enumerate}
+
+\item[3.] 
+
+For the following let $a, b, c, d \in \mathbb{Z}$ with $a \neq 0$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $a | 0 \Leftrightarrow (\exists n \in \mathbb{Z})[a * n = 0]$, choose $n = 0$. $a | a \Leftrightarrow (\exists n \in \mathbb{Z})[a * n = a]$, choose n = 1.
+    \item $(\Rightarrow)$ Since $a \mid 1$, $\exists b$ such that $1 = ab$. If $b = 1$, then $a = 1$. If $b = -1$, then $a = -1$. Hence $a = \pm 1$. \\
+    $(\Leftarrow)$
+    Let $a = \pm 1$. $\exists c$ such that $1 = ac$. If $a = 1$, then $c = 1$. If $a = -1$, then $c = -1$. Hence, $a \mid 1$. \\
+    That proves the statement.
+    \item If $a \mid b$ and $c \mid d$, then $b = qa$ and $d = rc$, respectively, for some $q, r \in \mathbb{Z}$ where $c \neq 0$. Multiplying both equations together, we get $bd = acqr$. Hence, $ac \mid bd$.
+    \item $\exists d, e \in \mathbb{Z}$ such that $b = da$, $c = eb$. Substituting, $c = (de)a$. Hence, $a \mid c$.
+    \item $(\Rightarrow)$ If $(a \mid b) \land (b \mid a)$, then $\exists c \in \mathbb{Z}$ such that $b = ca$ and $a = cb$. If $c = 1$, then $a = b$. If $c = -1$, then $a = -b$. Hence, $a = \pm b$. \\
+    $(\Leftarrow)$ Let $a = \pm b$. $\exists c \in \mathbb{Z}$ such that $b = ca$ and $a = cb$. If $c = 1$, then $a = b$. If $c = -1$, then $a = -b$. Hence, $(a \mid b) \land (b \mid a)$. \\
+    Thus, proving the statement.
+    \item If $a \mid b$, then $\exists c$ such that $b = ca$. Then $|b| = |c||a|$. Since $|c| \geq 1$, $a \neq 0 \Rightarrow b \neq 0$ and $|b| \geq 1$. Hence, $|a| \leq |b|$.
+    \item If $a \mid b$ and $a \mid c$, then $\exists d, e \in \mathbb{Z}$ such that $b = da$ \textbf{ (*)} and $c = ea$ \textbf{ (**)}, respectively. $\exists x, y \in \mathbb{Z}$. Multiply both sides of \textbf{(*)} by $x$, $bx = xda$. Multiply both sides of \textbf{(**)} by $y$, $cy = yea$. Add the newly formed equations together.
+    \begin{align*}
+        bx + cy &= xda + yea \\
+        bx + cy &= a(xd + ye), \text{ factor out $a$}
+    \end{align*}
+    Hence, $a \mid (bx + cy)$.
+\end{enumerate}
+
+\section{OPTIONAL PROBLEMS}
+
+\item[1.] Counterexample. $\exists p \in \mathbb{N}$ where $p > 1$, and $\exists a, b \in \mathbb{Z}$ where $b \neq 0$. If $p \mid ab$, then $ p = ab$. Let $b = 1$, then $p = a$. Hence, $p \mid a$. But $p = a = 4$ is not prime since $4 = 4*1 = 2*2$, which is a contradiction. Thus, the converse of Euclid's Lemma is false.
+
+\item[2.] Prove existence, then prove uniqueness. \\
+Existence. Contradiction. Let $p$ be prime where $p \in \mathbb{N}$ and $p > 1$. Let $p \mid ab$ where $a, b \in \mathbb{Z}$ and $b \neq 0$. Then $p = ab$. By definition of divisible $p \mid a$ or $p \mid b$. Thus, $p$ divides at least 1 of $a, b$. That proves existence. \\
+Uniqueness. Show that if there are 2 representatives of $p$, a prime number,
+\begin{align*}
+    p &= ab = cd, \text{ $a, b, c, d \in \mathbb{Z}$ and $b, d \neq 0$}
+\end{align*}
+then $a = c$ and $b = d$. Rearranging the above equations
+\begin{align*}
+    \frac{ab}{p} = \frac{cd}{p} \textbf{ (*)}
+\end{align*}
+Since \textbf{(*)} is equivalent and $p$ divides at least 1 of $a, b$, $p$ also divides at least 1 of $c, d$. Hence, $a = c$ and $b = d$. That proves uniqueness. \\
+That proves Euclid's Lemma.
+
+\end{enumerate}
+\end{document}

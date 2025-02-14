@@ -1,0 +1,68 @@
+\documentclass[11pt]{exam}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+\author{@dante}
+
+\headrule{}
+
+\begin{document}
+
+\lhead{\textbf{Intro to Math Thinking Fall 2024: Assignment 10.2}}
+
+\begin{enumerate}[leftmargin=0pt]
+
+\item[1.] Let $A = \{r \in \mathbb{Q} \mid r > 0 \land r^2 > 3\}$. Let $b \in \mathbb{Q}$ be a lower bound such that $b \leq \sqrt{3}$. Since we know $\frac{p}{q} \neq \sqrt{3}$ where $p, q \in \mathbb{Z}$ have no common factors, $b$ must be strictly less than $\sqrt{3}$. Thus, $\frac{p}{q} < \sqrt{3}$. We can find another such lower bound of the form $\frac{\frac{p}{q}}{2} < \sqrt{3} \Leftrightarrow \frac{p}{2q} < \sqrt{3}$. Since $\frac{p}{2q} < \frac{p}{q} < \sqrt{3}$, and we can do this for any $\frac{p}{q} < \sqrt{3}$, $A$ has no greatest lower bound in $\mathbb{Q}$. $\blacksquare$
+
+\item[2.] Let $x = 1, y = \frac{1}{s - r} > 0$ where $r, s \in \mathbb{R}$ and $r < s$. By the Archimedean property, $\exists n \in \mathbb{N}$ such that $nx > y \Leftrightarrow n > \frac{1}{s - r} \Leftrightarrow ns - nr > 1$. Since $ns - nr > 1$, there is an $m \in \mathbb{N}$ such that $nr < m < ns$. Dividing by $n$, we get $r < \frac{m}{n} < s$ where $\frac{m}{n} \in \mathbb{Q}$, which was to be proven. $\blacksquare$
+
+\item[3.] $a_n$ does not approach $a$ as $n$ goes to $\infty$. $(\exists \epsilon > 0)(\forall n)[(m > n) \land |a_m - a| \geq \epsilon]$ or $\lim_{n \to \infty} a_n \neq a$.
+
+\item[4.] \textbf{Prove} $\lim_{n \to \infty} (\frac{n}{n + 1})^2 = 1$ \\
+Proof. Let $\epsilon > 0$ be given. Choose $N$ large enough so that $N \geq \frac{2}{\epsilon}$. Then, for $n \geq N$
+\begin{align*}
+    |(\frac{n}{n + 1})^2 - 1| &= |\frac{n^2}{(n + 1)^2} - 1| \text{ (simplify)} \\
+    &= |\frac{n^2 - (n + 1)^2}{(n + 1)^2}| \text{ (simplify fraction)} \\
+    &= |\frac{-(2n + 1)}{(n + 1)^2}| = \frac{2n + 1}{(n + 1)^2} \text{ $(n \in \mathbb{N})$} \\
+    &< \frac{2}{n} \leq \frac{2}{N} \leq \epsilon
+\end{align*}
+By definition of limit, this proves the statement. $\blacksquare$
+
+\item[5.] \textbf{Prove} $\lim_{n \to \infty} \frac{1}{n^2} = 0$ \\
+Proof. Let $\epsilon > 0$ be given. Choose $N$ large enough so that $N \geq \frac{1}{\sqrt{\epsilon}}$. Then, for $n \geq N$
+\begin{align*}
+    |\frac{1}{n^2} - 0| &= |\frac{1}{n^2}| = \frac{1}{n^2} \text{ $(n \in \mathbb{N})$} \\
+    &\leq \frac{1}{N^2} \leq \epsilon
+\end{align*}
+By definition of limit, this proves the statement. $\blacksquare$
+
+\item[6.] \textbf{Prove} $\lim_{n \to \infty} \frac{1}{2^n} = 0$ \\
+Proof. Let $\epsilon > 0$ be given. Choose $N$ large enough so that $N \geq \frac{1}{\epsilon}$. Then, for $n \geq N$
+\begin{align*}
+    |\frac{1}{2^n} - 0| &= |\frac{1}{2^n}| = \frac{1}{2^n} \text{ $(n \in \mathbb{N})$} \\
+    &< \frac{1}{n} \leq \frac{1}{N} \leq \epsilon
+\end{align*}
+By definition of limit, this proves the statement. $\blacksquare$
+
+\item[7.] A sequence tends to $\infty$ if for every given number, we can find a term in the sequence larger than it. $(\forall K \in \mathbb{R})(\exists n \in \mathbb{N})[m > n \Rightarrow a_m > K]$.
+\begin{enumerate}[label=(\alph*)]
+    \item Prove $\{n\}_{n = 1}^{\infty} = \infty$. Given $K \in \mathbb{R}$, choose $n = \lceil K \rceil$. Since $n \geq K$ and $m > n$, we must have $m > K$. Hence, the statement is proven.
+    \item Prove $\{2^n\}_{n = 1}^{\infty} = \infty$. Given $K \in \mathbb{R}$, choose $n = \lceil log_2 K \rceil$. Since $2^n = 2^{log_2 K} \geq K$ and $m > n$, we must have $2^m > K$. Hence, the statement is proven.
+\end{enumerate}
+
+
+\item[8.] Let $\{a_n\}_{n = 1}^{\infty}$ be an increasing sequence such that $a_n \to a$ as $n \to \infty$. If $(\forall a_i \in A)(a_i \leq a)$ and for any upper bound $b$ of $a_n$, $a \leq b$, then by definition of lub, $a = lub\{a_n \mid n \in \mathbb{N}\}$. Hence, proven. $\blacksquare$
+
+\item[9.] Let $\{a_n\}_{n = 1}^{\infty}$ be an increasing sequence bounded above. Let $L = lub\{a_n \mid n \in \mathbb{N}\}$ and $\epsilon > 0$ is arbitrary. Since $L$ is the lub, $L - \epsilon$ is not an upper bound. Thus, $\exists N \in \mathbb{N}$ such that $a_N > L - \epsilon$. Since the sequence is increasing, $(\forall n \geq N)[a_n \geq a_N > L - \epsilon]$. Since $L$ is an upper bound for $a_n$, $(\forall n)(a_n \leq L)$. Combining these inequalities, we obtain $(\forall n \geq N)[L - \epsilon < a_n \leq L]$. Rearranging, we get $0 \leq L - a_n < \epsilon \Leftrightarrow |a_n - L| < \epsilon$. Since $\epsilon$ is arbitrary, we can make it as small as we want, which is the definition of limit. Hence, $\lim_{n \to \infty} a_n = L$ and is proven. $\blacksquare$
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,138 @@
+\documentclass[11pt]{exam}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+\author{@dante}
+
+\headrule{}
+
+\begin{document}
+
+\lhead{\textbf{Intro to Math Thinking Fall 2024: Assignment 7}}
+
+\begin{enumerate}[leftmargin=0pt]
+
+\item[1.] False. Counterexample. A penguin is a bird that cannot fly.
+
+\item[2.] False. Counterexample. Let $x = y = 1$. Then $(x - y)^2 = (1 - 1)^2 = 0 \not > 0$.
+
+\item[3.] True. Let $x, y \in \mathbb{Q}$ where $x < y$. Let $x = \frac{p}{q}$ and $y = \frac{r}{s}$ where $p, q, r, s \in \mathbb{Z}$ and $q \not = 0$ $\land$ $s \not = 0$. Then
+\begin{align*}
+    \frac{x + y}{2} &= \frac{\frac{p}{q} + \frac{r}{s}}{2} \text{ (substitute)} \\
+    &= \frac{ps + qr}{2qs} \text{ (simplify)}
+\end{align*}
+Since $\frac{ps + qr}{2qs} \in \mathbb{Q}$, and $x < \frac{x + y}{2} < y$, there exists a third rational between any 2 unequal rationals.
+
+\item[4.] Constructing a truth table for $[(\phi \Rightarrow \psi) \land (\psi \Rightarrow \phi)] \Rightarrow [\phi \Leftrightarrow \psi]$ would result in a tautology.
+
+\item[5.] $[(\neg \phi) \Rightarrow (\neg \psi)] \Leftrightarrow [\psi \Rightarrow \phi]$ is the contrapositive. Then from $\textbf{4.}$, $[(\phi \Rightarrow \psi) \land (\neg \phi \Rightarrow \neg \psi)] \Rightarrow [\phi \Leftrightarrow \psi]$ would result in a tautology.
+
+\item[6.] Suppose $\$2M$ is split evenly among 5 investors. $\$2M / 5 = \$400000$, which is the most each investor will receive if split evenly. Thus, at least 1 investor receives at least $\$400000$.
+
+\item[7.] Suppose $\sqrt{3}$ is rational. Then there exists $p, q \in \mathbb{N}$ such that $p, q$ have no common factors.
+\begin{align*}
+    \sqrt{3} &= \frac{p}{q} \\
+    3 &= \frac{p^2}{q^2} \text{     (square)}\\
+    3q^2 &= p^2 \text{     (rearrange)}
+\end{align*}
+$p^2$ is a multiple of 3, and thus $p$ is a multiple of 3. Let $r \in \mathbb{N}$ such that $p = 3r$.
+\begin{align*}
+    3q^2 &= (3r)^2 \text{ 
+        (substitute)}\\
+    3q^2 &= 9r^2 \text{  
+        (simplify)}\\
+    q^2 &= 3r^2 \text{
+        (divide by 3)}
+\end{align*}
+$q^2$ is a multiple of 3, and thus $q$ is a multiple of 3. $p, q$ both are a multiple of 3, however $p, q$ have no common factors, which is a contradiction. Thus, $\sqrt{3}$ is irrational. $\blacksquare$
+
+\item[8.]
+\begin{enumerate}[label=(\alph*)]
+    \item If the Yuan rises, the Dollar will fall.
+    \item $(\forall x, y \in \mathbb{R}) [(-y < -x) \Rightarrow (x < y)]$
+    \item If 2 triangles have the same area, they are congruent.
+    \item If $b^2 \geq 4ac$, then $ax^2 + bx + c = 0$ (where $a, b, c, x \in \mathbb{R}$ and $a \neq 0$).
+    \item If the opposite angles of quadrilateral $ABCD$ are pairwise equal, then the opposite sides are pairwise equal.
+    \item If all 4 angles of quadrilateral $ABCD$ are equal, then all 4 sides are equal.
+    \item $(\forall n \in \mathbb{N}) [3 | (n^2 + 5) \Rightarrow \neg (3 | n)]$
+\end{enumerate}
+
+\item[9.]
+\begin{enumerate}[label=(\alph*), start=2]
+    \item og: True. $(\forall x, y \in \mathbb{R})[x < y \Rightarrow -y < -x]$  \\
+    conv: True. $(\forall x, y \in \mathbb{R})[-y < -x \Rightarrow x < y]$ \\
+    \\
+    $(\forall x, y \in \mathbb{R})[x < y \Leftrightarrow 0 < y - x \Leftrightarrow -y < -x ]$. Thus, equivalent.
+    \item og: True. Congruent triangles are the same size and shape, thus will have the same area. \\
+    conv: False. The triangles could have the same area but not be congruent. \\
+    
+    Not equivalent.
+    \item Suppose $(\forall b, c \in \mathbb{R} \land \forall a \in \mathbb{R} \backslash \{0\})$ and $\exists x \in \mathbb{R}$ such that $ax^2 + bx + c = 0 \Leftrightarrow x^2 + \frac{b}{a}x + \frac{c}{a} = 0 \Leftrightarrow (x + \frac{b}{2a})^2 + \frac{c}{a} = \frac{b^2}{4a^2} \Leftrightarrow (x + \frac{b}{2a})^2 = \frac{b^2 - 4ac}{4a^2} \Leftrightarrow x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a} \Leftrightarrow x = - \frac{b \pm \sqrt{b^2 - 4ac}}{2a}$. Since $b^2 - 4ac \geq 0 \Leftrightarrow b^2 \geq 4ac$. Thus, a solution exists if $b^2 \geq 4ac$, and the converse is also true. Thus, equivalent.
+    \item If opposite sides of quadrilateral $ABCD$ are pairwise equal, it is a parallelogram. Then the opposite angles are pairwise equal. The converse is also true. Thus, equivalent.
+    \item og: False. Counterexample. $ABCD$ is a rhombus. \\
+    conv: False. $ABCD$ is a rectangle. \\
+    \\
+    Not equivalent.
+    \item If $(n \in \mathbb{N})$ and $3 \nmid n$, then $n = (3k + 1) \lor (3k + 2)$ where $k \in \mathbb{Z}$. Then $n^2 + 5 = [3(3k^2 + 2k + 2) \lor 3(3k^2 + 4k + 3)]$. Thus, $3 \mid (n^2 + 5)$. If $3 \mid (n^2 + 5)$, then $n^2 + 5 = (3k + 1) \lor (3k + 2)$. Consider the case where $n^2 + 5 = 3k + 2$. Then $n^2 = 3k - 3 = 3(k - 1)$. Therefore, $3 \mid n^2$, and by Euclid's lemma, $3 \mid n$. Thus, the converse is false, and the statement and its converse are not equivalent.
+\end{enumerate}
+
+\item[10.] $(\Rightarrow)$ If $n \in \mathbb{N}$ and $12 \mid n$, then $(\forall k \in \mathbb{Z})[n = 12k]$. Then $n^3 = 12^3 k^3$ that can be written as $12 \mid n^3$. \\
+$(\Leftarrow)$ False. Counterexample. Let $n = 6$ such that $n^3 = 216$. Since $216 = 12 * 18$, it can be written $12 \mid n^3$. However, $12 \nmid n$, which is a contradiction. \\
+Thus, the statement is false. 
+
+\item[11.]
+$1, 2, 5$ are irrational. \\
+\\
+For the following, let $r, s$ be irrationals.
+\begin{enumerate}
+    \item[1.] Let $r + 3$ be rational such that $p, q \in \mathbb{Z}$ where $p, q$ have no common factors. Then $r + 3 = \frac{p}{q} \Leftrightarrow r = \frac{p}{q} - 3 \Leftrightarrow r = \frac{p - 3q}{q} \in \mathbb{Q}$. But $r$ was assumed to be irrational, which is a contradiction. Thus, $r + 3$ must be irrational. 
+    \item[2.] Let $5r$ be rational such that $p, q \in \mathbb{Q}$ where $p, q$ have no common factors. Then $5r = \frac{p}{q} \Leftrightarrow r = \frac{p}{5q} \in \mathbb{Q}$. But $r$ was assumed to be irrational, which is a contradiction. Thus, $5r$ is irrational.
+    \item[3.] Counterexample. Let $r = -s = \sqrt{2}$. Then $r + s = \sqrt{2} - \sqrt{2} = 0 \in \mathbb{Q}$. Thus, $r + s$ could be rational.
+    \item[4.] Counterexample. Let $r = s = \sqrt{2}$. Then $rs = \sqrt{2} * \sqrt{2} = 2 \in \mathbb{Q}$. Thus, $rs$ could be rational.
+    \item[5.] Let $\sqrt{r}$ be rational such that $p, q \in \mathbb{Q}$ where $p, q$ have no common factors. Then $\sqrt{r} = \frac{p}{q} \Leftrightarrow r = \frac{p^2}{q^2} \in \mathbb{Q}$. But $r$ was assumed to be irrational, which is a contradiction. Thus, $\sqrt{r}$ is irrational. 
+    \item[6.] Consider \\
+    Case 1. If $\sqrt{2}^{\sqrt{2}}$ is rational, let $r = s = \sqrt{2}$. \\
+    Case 2. If $\sqrt{2}^{\sqrt{2}}$ is irrational, let $r = \sqrt{2}^{\sqrt{2}}$ and $s = \sqrt{2}$. Then $r^s = (\sqrt{2}^{\sqrt{2}})^{\sqrt{2}} = \sqrt{2}^2 = 2 \in \mathbb{Q}$. Thus, $r^s$ is rational.
+    
+\end{enumerate}
+
+\item[12.]
+
+For the following, let $m, n \in \mathbb{Z}$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Let $m, n$ be even such that $\forall q, r \in \mathbb{Z}, m = 2q$, and $n = 2r$. Then $m + n = 2q + 2r = 2(q + r)$, or $2 \mid (m + n)$. Thus, $m + n$ is even.
+    \item Let $m, n$ be even such that $\forall q, r \in \mathbb{Z}, m = 2q$, and $n = 2r$. Then $mn = (2q)(2r) = 4qr$, or $4 \mid mn$. Thus, $mn$ is divisible by 4.
+    \item Let $m, n$ be odd such that $\forall q, r \in \mathbb{Z}, m = 2q + 1$, and $n = 2r + 1$. Then $m + n = (2q + 1) + (2r + 1) = 2q + 2r + 2 = 2(q + r + 1)$, or $2 \mid (m + n)$. Thus, $m + n$ is even.
+    \item Let $m$ be even and $n$ be odd such that $\forall q, r \in \mathbb{Z}, m = 2q$, and $n = 2r + 1$. Then $m + n = 2q + 1 + 2r = 2(q + r) + 1$, or $\neg 2 \mid (m + n)$. Thus, $m + n$ is odd.
+    \item Let $m$ be even and $n$ be odd such that $q, r \in \mathbb{Z}, m = 2q$, and $n = 2r + 1$. Then $mn = (2q)(2r + 1) = 2(2qr + q)$, or $2 \mid (m + n)$. Thus, $mn$ is even.
+\end{enumerate}
+
+\section{OPTIONAL PROBLEM}
+\begin{enumerate}[label=(\alph*)]
+    \item True. Let $x, y \in \mathbb{R}$ such that $x = 0$ and $(\forall y \in \mathbb{R}) \mid [x + y = y]$.
+    \item True. Let $x, y \in \mathbb{R}$ and $\forall x \exists y (x + y = 0)$ where $x = - y$.
+    \item False. Let $a, b, c \in \mathbb{Z}$ such that $a \mid bc$. Let $a = 4$ and $b = c = 2$. Then $a \mid bc \Leftrightarrow 4 \mid (2*2) \Leftrightarrow 4 \mid 4$, but $(a \nmid b \lor a \nmid c) \Leftrightarrow (4 \nmid 2 \lor 4 \nmid 2)$.
+    \item True. Let $x \in \mathbb{R}$ and $y \in \mathbb{R} \backslash \mathbb{Q}$. Let $x + y$ is rational such that $p, q \in \mathbb{Q}$ where $p, q$ have no common factors. Then $x + y = \frac{p}{q} \Leftrightarrow y = \frac{p}{q} - x \Leftrightarrow y = \frac{p - qx}{q} \in \mathbb{Q}$. But $y$ is irrational, which is a contradiction. Thus, $x + y$ is irrational.
+    \item True.
+    Case 1. Let $x \in \mathbb{R}$ and $y \in \mathbb{R} \backslash \mathbb{Q}$. See $\textbf{(d)}$.
+    \\
+    Case 2. Let $x, y \in \mathbb{R}$ such that $p, q \in \mathbb{Z}$ where $p, q$ have no common factors. Then $x + y = \frac{p}{q} \Leftrightarrow x = \frac{p}{q} - y \Leftrightarrow x = \frac{p - qy}{q} \in \mathbb{Q}$. Thus, $x + y \in \mathbb{Q} \in \mathbb{R}$.
+    \\
+    Case 3. See $\textbf{(11.3)}$. \\
+    Thus, at least 1 of $x, y$ is irrational.
+    \item False. Counterexample. Let $x, y \in \mathbb{R} \backslash \mathbb{Q}$ such that $x = -y = \sqrt{2}$. Then $x + y = \sqrt{2} - \sqrt{2} = 0 \in \mathbb{Q}$. Thus, $x + y$ could be rational without either $x, y \in \mathbb{Q}$.
+        
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
